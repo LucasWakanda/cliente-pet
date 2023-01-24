@@ -1,5 +1,7 @@
 package br.com.petz.clientepet.cliente.application.api;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,5 +14,5 @@ import org.springframework.web.bind.annotation.RestController;
 public interface ClipenteAPI {
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-ClienteResponse postCliente( @RequestBody  ClienteRequest clenteRequest);
+ClienteResponse postCliente(@Valid @RequestBody  ClienteRequest clenteRequest);
 }
