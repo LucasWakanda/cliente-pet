@@ -41,12 +41,15 @@ public class Cliente {
 	private LocalDate dataNascimento;
 	@CPF
 	private String cpf;
+	@NotNull
+	private Boolean aceitaTermos;
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
 	public Cliente(@NotBlank String nomeCompleto, @NotBlank @Email String email, @NotBlank String celular,
-			String telefone, Sexo sexo, @NotNull LocalDate dataNascimento, @CPF String cpf) {
+			String telefone, Sexo sexo, @NotNull LocalDate dataNascimento, @CPF String cpf,
+			@NotNull Boolean aceitaTermos) {
 		this.idCliente = UUID.randomUUID();
 		this.nomeCompleto = nomeCompleto;
 		this.email = email;
