@@ -44,7 +44,7 @@ public class Cliente {
 	private String cpf;
 	@NotNull
 	private Boolean aceitaTermos;
-	
+	 
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
