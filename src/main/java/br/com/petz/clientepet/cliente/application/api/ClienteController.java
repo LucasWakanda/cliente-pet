@@ -25,7 +25,7 @@ public class ClienteController implements ClipenteAPI {
 	@Override
 	public List<ClienteListResponse> getTodosClientes() {
 		log.info("[inicia] ClienteController - getTodosClientes");
-		List<ClienteListResponse> cliente = clienteService.buscaTodosClientes();
+		List<ClienteListResponse> clientes = clienteService.buscaTodosClientes();
 		log.info("[finaliza] ClienteController - getTodosClientes");
 		return clientes;
 	}
