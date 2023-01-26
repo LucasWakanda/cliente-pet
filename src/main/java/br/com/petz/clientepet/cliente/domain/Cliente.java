@@ -17,18 +17,19 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import br.com.petz.clientepet.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Entity
-
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column( name = "id", updatable = false, unique = true, nullable = false)	
+	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)	
 	private UUID idCliente;
 	@NotBlank
 	private String nomeCompleto;
