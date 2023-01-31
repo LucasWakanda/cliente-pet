@@ -33,11 +33,12 @@ public class ClienteController implements ClipenteAPI {
 		
 	}
 	@Override
-	public ClienteDetalhaResponse getTodosClienteAtravesId(UUID idCliente) {
+	public ClienteDetalhadoResponse getTodosClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteController - getClienteAtravesId");
 		log.info("[idCliente]", idCliente);
+		ClienteDetalhadoResponse clienteDetalhado = clienteService.buscaClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteController - getClienteAtravesId");
-		return null;
+		return clienteDetalhado;
 	}
 
 }
