@@ -44,6 +44,7 @@ public class ClienteController implements ClipenteAPI {
 	public void deletaClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteController - deletaClienteAtravesId");
 		log.info("[idCliente]", idCliente);
+		clienteService.deletaClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteController - deletaClienteAtravesId");
 
 	}
