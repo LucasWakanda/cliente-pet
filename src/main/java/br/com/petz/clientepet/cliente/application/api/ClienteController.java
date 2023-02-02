@@ -5,6 +5,8 @@ package br.com.petz.clientepet.cliente.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.petz.clientepet.cliente.application.service.ClienteService;
@@ -47,6 +49,12 @@ public class ClienteController implements ClipenteAPI {
 		clienteService.deletaClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteController - deletaClienteAtravesId");
 
+	}
+	@Override
+	public void PatchAlterapostCliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteController - PatchAlterapostCliente");
+		log.info("[idCliente]", idCliente);
+		log.info("[inicia] ClienteController - PatchAlterapostCliente");
 	}
 
 }
