@@ -54,6 +54,7 @@ public class ClienteController implements ClipenteAPI {
 	public void PatchAlterapostCliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
 		log.info("[inicia] ClienteController - PatchAlterapostCliente");
 		log.info("[idCliente]", idCliente);
+		clienteService.PatchAlterapostCliente(idCliente,clienteAlteracaoRequest);
 		log.info("[inicia] ClienteController - PatchAlterapostCliente");
 	}
 
