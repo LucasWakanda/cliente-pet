@@ -15,37 +15,36 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Entity
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class pet {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idpet", updatable = false, unique = true, nullable = false)	
 	private UUID idpet;
 	@NotBlank
-	private String nomepet;
+	private String nomePet;
 	@Enumerated(EnumType.STRING)
 	private Porte porte;
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	private TipoPet tipo;
 	private String microchip;
+	@NotBlank
 	private String raca;
 	@Enumerated(EnumType.STRING)
+	@NotNull
 	private SexoPet sexo;
-	private String PelagemCor;
+	private String pelagemCor;
 	@NotNull
 	private LocalDate dataNascimento;
 	private String rga;
 	private Integer peso;
 	
-	 
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 
