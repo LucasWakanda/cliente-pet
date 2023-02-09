@@ -24,19 +24,20 @@ private final PetRepository petRepository;
 
 	@Override
 	public PetResponse criaPet(UUID idCliente, @Valid PetRequest petRequest) {
-		log.info("[inicia]PetApplicationService - criaPet");
+		log.info("[start]PetApplicationService - criaPet");
 		clienteService.buscaClienteAtravesId(idCliente);
 		Pet pet = petRepository.salvaPet(new Pet(idCliente, petRequest));
-		log.info("[finaliza]PetApplicationService - criaPet");
+		log.info("[finish]PetApplicationService - criaPet");
 		return new PetResponse(pet.getIdpet());
 	}
 
 	@Override
 	public List<PetClienteListResponse> buscaPetsDoClienteComId(UUID idCliente) {
-		log.info("[inicia]PetApplicationService - buscaPetsDoClienteComId");
+		log.info("[start]PetApplicationService - buscaPetsDoClienteComId");
 		clienteService.buscaClienteAtravesId(idCliente);
-		log.info("[finaliza]PetApplicationService - buscaPetsDoClienteComId");
-		return null;
+		List<Pet> petsDoCliente = petRepository.buscaPetsDoClienteComId( idCliente);
+		log.info("[finish]PetApplicationService - buscaPetsDoClienteComId");
+		return PetClienteListResponse.converte(petsDoCliente);
 	}
 
 }
