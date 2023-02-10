@@ -1,4 +1,4 @@
-package br.com.petz.clientepet.pet.domian;
+package br.com.petz.clientepet.pet.domain;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

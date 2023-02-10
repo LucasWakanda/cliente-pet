@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Repository;
 
 import br.com.petz.clientepet.pet.Application.service.PetRepository;
-import br.com.petz.clientepet.pet.domian.Pet;
+import br.com.petz.clientepet.pet.domain.Pet;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 @Repository

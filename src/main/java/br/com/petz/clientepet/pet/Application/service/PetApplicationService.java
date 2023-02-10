@@ -11,7 +11,7 @@ import br.com.petz.clientepet.cliente.application.service.ClienteService;
 import br.com.petz.clientepet.pet.Application.api.PetClienteListResponse;
 import br.com.petz.clientepet.pet.Application.api.PetRequest;
 import br.com.petz.clientepet.pet.Application.api.PetResponse;
-import br.com.petz.clientepet.pet.domian.Pet;
+import br.com.petz.clientepet.pet.domain.Pet;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

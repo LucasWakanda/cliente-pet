@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.petz.clientepet.pet.domian.Porte;
-import br.com.petz.clientepet.pet.domian.SexoPet;
-import br.com.petz.clientepet.pet.domian.TipoPet;
+import br.com.petz.clientepet.pet.domain.Porte;
+import br.com.petz.clientepet.pet.domain.SexoPet;
+import br.com.petz.clientepet.pet.domain.TipoPet;
 import lombok.Value;
 @Value
 public class PetRequest {
