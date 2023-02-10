@@ -26,4 +26,8 @@ PetResponse postPet(@PathVariable UUID idCliente,
 	@ResponseStatus(code = HttpStatus.OK)
 List<PetClienteListResponse> getPetsDoCliente(@PathVariable UUID idCliente);
 
+	@GetMapping (value = "/{idPet}")
+	@ResponseStatus(code = HttpStatus.OK)
+    PetClienteDetalhadoResponse getTodosClienteAtravesId(@PathVariable UUID idCliente,@PathVariable UUID  idPet);
+	
 }
