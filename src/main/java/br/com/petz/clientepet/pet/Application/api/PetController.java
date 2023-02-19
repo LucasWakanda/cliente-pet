@@ -10,42 +10,55 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.petz.clientepet.pet.Application.service.PetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+
 @RestController
 @Log4j2
 @RequiredArgsConstructor
 public class PetController implements PetAPI {
 	private final PetService petService;
+
 	@Override
 	public PetResponse postPet(UUID idCliente, @Valid PetRequest petRequest) {
- log.info("[inicia] PetController -  postPet");
- log.info("[idCliente]{}", idCliente);
- PetResponse pet = petService.criaPet(idCliente,petRequest);
- log.info("[finaliza] PetController -  postPet");
+		log.info("[inicia] PetController -  postPet");
+		log.info("[idCliente]{}", idCliente);
+		PetResponse pet = petService.criaPet(idCliente, petRequest);
+		log.info("[finaliza] PetController -  postPet");
 		return pet;
 	}
+
 	@Override
 	public List<PetClienteListResponse> getPetsDoCliente(UUID idCliente) {
-		 log.info("[inicia] PetController -  getPetsDoCliente");
-		 log.info("[idCliente]{}",idCliente);
-		 List<PetClienteListResponse> petsDoCliente = petService.buscaPetsDoClienteComId(idCliente);
-		 log.info("[finaliza] PetController -  getPetsDoCliente");
+		log.info("[inicia] PetController -  getPetsDoCliente");
+		log.info("[idCliente]{}", idCliente);
+		List<PetClienteListResponse> petsDoCliente = petService.buscaPetsDoClienteComId(idCliente);
+		log.info("[finaliza] PetController -  getPetsDoCliente");
 		return petsDoCliente;
 	}
+
 	@Override
 	public PetClienteDetalhadoResponse getTodosClienteAtravesId(UUID idCliente, UUID idPet) {
-		 log.info("[inicia] PetController -  getTodosClienteAtravesId");
-		 log.info("[idCliente]{} - idPet]{}",idCliente, idPet);	
-		 PetClienteDetalhadoResponse pet = petService.buscaPetDoClienteComId(idCliente,idPet);
-		 log.info("[finish] PetController -  getTodosClienteAtravesId");
-		 return pet;
+		log.info("[inicia] PetController -  getTodosClienteAtravesId");
+		log.info("[idCliente]{} - idPet]{}", idCliente, idPet);
+		PetClienteDetalhadoResponse pet = petService.buscaPetDoClienteComId(idCliente, idPet);
+		log.info("[finish] PetController -  getTodosClienteAtravesId");
+		return pet;
 	}
+
 	@Override
 	public void deletePetDoClienteComId(UUID idCliente, UUID idPet) {
-		 log.info("[start] PetController -  deletePetDoClienteComId");
-		 log.info("[idCliente]{} - idPet]{}",idCliente, idPet);
-		 petService.deletaPetDoClienteComID(idCliente,idPet);
-		 log.info("[finish] PetController -  deletePetDoClienteComId");
+		log.info("[start] PetController -  deletePetDoClienteComId");
+		log.info("[idCliente]{} - idPet]{}", idCliente, idPet);
+		petService.deletaPetDoClienteComID(idCliente, idPet);
+		log.info("[finish] PetController -  deletePetDoClienteComId");
 
 	}
+
+	@Override
+	public PetResponse patchPet(UUID idCliente, UUID idPet, @Valid PetAlteracaoRequest petAlteracaoRequest) {
+		log.info("[start] PetController -  patchPet");
+		log.info("[idCliente]{} - idPet]{}", idCliente, idPet);
+		log.info("[finish] PetController -  patchPet");		return null;
+	}
+
 
 }
