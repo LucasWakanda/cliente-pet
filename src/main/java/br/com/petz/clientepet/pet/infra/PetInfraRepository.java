@@ -43,4 +43,12 @@ private final PetSpringDataJPARepository petSpringDataJPARepository;
 	    return pet;
 	}
 
+	@Override
+	public void deletaPet(Pet pet) {
+		log.info("[start]PetInfraRepository - deletaPet ");
+		petSpringDataJPARepository.delete(pet);
+		log.info("[finish]PetInfraRepository - deletaPet ");
+
+	}
+
 }
