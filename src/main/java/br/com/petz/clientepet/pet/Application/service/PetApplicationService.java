@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import br.com.petz.clientepet.cliente.application.service.ClienteService;
+import br.com.petz.clientepet.pet.Application.api.PetClienteDetalhadoResponse;
 import br.com.petz.clientepet.pet.Application.api.PetClienteListResponse;
 import br.com.petz.clientepet.pet.Application.api.PetRequest;
 import br.com.petz.clientepet.pet.Application.api.PetResponse;
@@ -38,6 +39,15 @@ private final PetRepository petRepository;
 		List<Pet> petsDoCliente = petRepository.buscaPetsDoClienteComId( idCliente);
 		log.info("[finish]PetApplicationService - buscaPetsDoClienteComId");
 		return PetClienteListResponse.converte(petsDoCliente);
+	}
+
+	@Override
+	public PetClienteDetalhadoResponse buscaPetDoClienteComId(UUID idCliente, UUID idPet) {
+		log.info("[start]PetApplicationService - buscaPetDoClienteComId");
+		clienteService.buscaClienteAtravesId(idCliente);
+		Pet pet = petRepository.buscaPetPeloId(idPet);
+		log.info("[finish]PetApplicationService - buscaPetDoClienteComId");
+		return new PetClienteDetalhadoResponse(pet);
 	}
 
 }
