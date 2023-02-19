@@ -50,4 +50,10 @@ private final PetRepository petRepository;
 		return new PetClienteDetalhadoResponse(pet);
 	}
 
+	@Override
+	public void deletaPetDoClienteComID(UUID idCliente, UUID idPet) {
+		log.info("[start]PetApplicationService - deletaPetDoClienteComID");
+		log.info("[finish]PetApplicationService - deletaPetDoClienteComID");
+	}
+
 }
