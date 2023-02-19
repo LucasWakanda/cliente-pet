@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import br.com.petz.clientepet.cliente.application.service.ClienteService;
+import br.com.petz.clientepet.pet.Application.api.PetAlteracaoRequest;
 import br.com.petz.clientepet.pet.Application.api.PetClienteDetalhadoResponse;
 import br.com.petz.clientepet.pet.Application.api.PetClienteListResponse;
 import br.com.petz.clientepet.pet.Application.api.PetRequest;
@@ -20,8 +21,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class PetApplicationService implements PetService {
-private final ClienteService clienteService ;
-private final PetRepository petRepository;
+	private final ClienteService clienteService;
+	private final PetRepository petRepository;
 
 	@Override
 	public PetResponse criaPet(UUID idCliente, @Valid PetRequest petRequest) {
@@ -36,7 +37,7 @@ private final PetRepository petRepository;
 	public List<PetClienteListResponse> buscaPetsDoClienteComId(UUID idCliente) {
 		log.info("[start]PetApplicationService - buscaPetsDoClienteComId");
 		clienteService.buscaClienteAtravesId(idCliente);
-		List<Pet> petsDoCliente = petRepository.buscaPetsDoClienteComId( idCliente);
+		List<Pet> petsDoCliente = petRepository.buscaPetsDoClienteComId(idCliente);
 		log.info("[finish]PetApplicationService - buscaPetsDoClienteComId");
 		return PetClienteListResponse.converte(petsDoCliente);
 	}
@@ -54,8 +55,18 @@ private final PetRepository petRepository;
 		log.info("[start]PetApplicationService - deletaPetDoClienteComID");
 		clienteService.buscaClienteAtravesId(idCliente);
 		Pet pet = petRepository.buscaPetPeloId(idPet);
-petRepository.deletaPet(pet);
+		petRepository.deletaPet(pet);
 		log.info("[finish]PetApplicationService - deletaPetDoClienteComID");
+	}
+
+	@Override
+	public void alteracaoPetDoClienteComID(UUID idCliente, UUID idPet, PetAlteracaoRequest petAlteracaoRequest) {
+		log.info("[start]PetApplicationService - alteracaoPetDoClienteComID");
+		clienteService.buscaClienteAtravesId(idCliente);
+		Pet pet = petRepository.buscaPetPeloId(idPet);
+		pet.altera(petAlteracaoRequest);
+		petRepository.salvaPet(pet);
+		log.info("[finish]PetApplicationService - alteracaoPetDoClienteComID");
 	}
 
 }

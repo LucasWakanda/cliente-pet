@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import br.com.petz.clientepet.pet.Application.api.PetAlteracaoRequest;
 import br.com.petz.clientepet.pet.Application.api.PetClienteDetalhadoResponse;
 import br.com.petz.clientepet.pet.Application.api.PetClienteListResponse;
 import br.com.petz.clientepet.pet.Application.api.PetRequest;
@@ -15,4 +16,5 @@ public interface PetService {
 	List<PetClienteListResponse> buscaPetsDoClienteComId(UUID idCliente);
 	PetClienteDetalhadoResponse buscaPetDoClienteComId(UUID idCliente, UUID idPet);
 	void deletaPetDoClienteComID(UUID idCliente, UUID idPet);
+	void alteracaoPetDoClienteComID(UUID idCliente, UUID idPet, PetAlteracaoRequest petAlteracaoRequest);
 }
